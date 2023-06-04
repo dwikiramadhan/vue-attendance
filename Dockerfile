@@ -9,13 +9,12 @@ COPY package*.json ./
 
 COPY . ./
 
-RUN npm install -g @vue/cli-service
 RUN npm install -g
 # RUN npm install @vue/cli@3.7.0 -g
 
-RUN npm run build:dev
+# RUN npm run build:dev
 
 EXPOSE 8686
 #CMD [ "http-server", "dist" ]
-#CMD ["npm", "run", "serve"]
-CMD npm run preview
+CMD ["npm", "run", "dev"]
+# CMD npm run preview

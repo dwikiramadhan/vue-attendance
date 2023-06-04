@@ -5,16 +5,16 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    container_name: anara-web-admin
+    container_name: vue-attendance
     network_mode: bridge
     build: .
     volumes:
       - /app/
       - /app/node_modules
     labels:
-      - anara-web-admin
+      - vue-attendance
     stdin_open: true
     tty: true
     ports:
-      - 19501:9526 
+      - 3000:3000 
 

@@ -11,11 +11,10 @@ COPY . ./
 
 # RUN npm install -g @vue/cli-service
 RUN npm i
-RUN npm i @vue/cli --save-dev
 
 RUN npm run build:prod
 
-EXPOSE 8686
+EXPOSE 2000
 #CMD [ "http-server", "dist" ]
 # CMD ["npm", "run", "serve"]
 CMD npm run preview

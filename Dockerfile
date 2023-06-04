@@ -11,7 +11,7 @@ COPY . ./
 
 # RUN npm install -g @vue/cli-service
 RUN npm install -g
-RUN npm install @vue/cli@4.4.4 -g
+RUN npm i @vue/cli -g
 
 RUN npm run build:prod
 

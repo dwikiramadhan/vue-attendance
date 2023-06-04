@@ -1,7 +1,7 @@
 {
-  "name": "anara-accounting",
+  "name": "attendance",
   "version": "1.0.0",
-  "description": "An administration web for Anara Medical Indonesia",
+  "description": "An administration web for Attendance",
   "author": "Dwiki",
   "scripts": {
     "start": "pm2 resurrect",

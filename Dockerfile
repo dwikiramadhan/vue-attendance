@@ -10,7 +10,7 @@ COPY package*.json ./
 COPY . ./
 
 # RUN npm install -g @vue/cli-service
-RUN npm install -g
+RUN npm i
 RUN npm i @vue/cli --save-dev
 
 RUN npm run build:prod

@@ -1,0 +1,14 @@
+stages:
+  - build&deploy
+
+Build-development:
+  stage: build&deploy
+  environment:
+    name: development
+  only:
+    - master
+  tags:
+   - a-dev-utkor
+  script:
+   - docker-compose down --rmi local
+   - docker-compose up -d 

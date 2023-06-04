@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  web-client:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: anara-web-admin
+    network_mode: bridge
+    build: .
+    volumes:
+      - /app/
+      - /app/node_modules
+    labels:
+      - anara-web-admin
+    stdin_open: true
+    tty: true
+    ports:
+      - 19501:9526 
+

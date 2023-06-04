@@ -13,9 +13,9 @@ COPY . ./
 RUN npm install -g
 # RUN npm install @vue/cli@3.7.0 -g
 
-# RUN npm run build:prod
+RUN npm run build:prod
 
 EXPOSE 8686
 #CMD [ "http-server", "dist" ]
-CMD ["npm", "run", "serve"]
-# CMD npm run preview
+# CMD ["npm", "run", "serve"]
+CMD npm run preview

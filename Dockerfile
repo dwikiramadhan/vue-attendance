@@ -9,7 +9,7 @@ COPY package*.json ./
 
 COPY . ./
 
-RUN npm install
+RUN npm install -g
 # RUN npm install @vue/cli@3.7.0 -g
 
 RUN npm run build:prod

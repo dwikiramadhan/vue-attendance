@@ -87,6 +87,7 @@ export default {
   components: { Pagination, VueEasyLightbox },
   filters: {
     dateFilter: function(date) {
+      console.log("date:", date);
       if (moment(date).isValid()) {
         return moment(date).format('DD MMM YYYY HH:mm')
       } else {

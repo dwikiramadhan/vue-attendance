@@ -107,24 +107,23 @@ export default {
       todayAttendance(this.emp_no).then(response => {
         let resp = response.data.data
         
-        if (resp.come_in != '') {
+        if (resp.come_in != null) {
           var currentDate = moment().format("YYYY-MM-DD");
           var currentDateTime = currentDate + " " + resp.admission_time_limit
-  
-          var come_in = moment(new Date(resp.come_in)).format("YYYY-MM-DD HH:mm")
+          
+          var come_in = moment(resp.come_in).format("YYYY-MM-DD HH:mm")
           var isafter = moment(come_in).isAfter(currentDateTime);
   
-          this.attendanceToday.come_in = moment(new Date(resp.come_in)).format('HH:mm')
+          this.attendanceToday.come_in = moment(resp.come_in).format('HH:mm')
           this.attendanceToday.is_discipline = isafter
-          console.log("isafter: ", isafter);
 
           this.attendanceToday.selfie = `data:image/jpeg;base64, ${resp.selfie}`
         }else{
           this.attendanceToday.come_in = "Belum absen hari ini" 
         }
 
-        if (resp.come_out != '') {
-          this.attendanceToday.come_out = moment(new Date(resp.come_out)).format('HH:mm')
+        if (resp.come_out != null) {
+          this.attendanceToday.come_out = moment(resp.come_out).format('HH:mm')
         }
         this.listLoading = false
       }).catch(() => {

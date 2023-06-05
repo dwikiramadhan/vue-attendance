@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Indo Dispo Admin',
+  title: 'Pins Attendance',
 
   /**
    * @type {boolean} true | false

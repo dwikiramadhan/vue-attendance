@@ -18,7 +18,8 @@
       </el-col>
       <el-col :span="12">
         <div class="avatar-container">
-          <el-button type="text" @click="showSingle"><img id="avatar" class="avatar-round" :src="attendanceToday.selfie" alt="Base64 Image"></el-button>
+          <el-button type="text" @click="showSingle" v-if="attendanceToday.is_discipline !== ''"><img id="avatar" class="avatar-round" :src="attendanceToday.selfie" alt="Base64 Image"></el-button>
+          
           <vue-easy-lightbox
             escDisabled
             moveDisabled
@@ -105,17 +106,17 @@ export default {
       this.listLoading = true
       todayAttendance(this.emp_no).then(response => {
         let resp = response.data.data
-        console.log("response.data.data: ", response.data.data);
         
         if (resp.come_in != '') {
           var currentDate = moment().format("YYYY-MM-DD");
           var currentDateTime = currentDate + " " + resp.admission_time_limit
   
-          var come_in = moment(resp.come_in).format("YYYY-MM-DD HH:mm")
+          var come_in = moment(new Date(resp.come_in)).format("YYYY-MM-DD HH:mm")
           var isafter = moment(come_in).isAfter(currentDateTime);
   
-          this.attendanceToday.come_in = moment(resp.come_in).format('HH:mm')
+          this.attendanceToday.come_in = moment(new Date(resp.come_in)).format('HH:mm')
           this.attendanceToday.is_discipline = isafter
+          console.log("isafter: ", isafter);
 
           this.attendanceToday.selfie = `data:image/jpeg;base64, ${resp.selfie}`
         }else{
@@ -123,7 +124,7 @@ export default {
         }
 
         if (resp.come_out != '') {
-          this.attendanceToday.come_out = moment(resp.come_out).format('HH:mm')
+          this.attendanceToday.come_out = moment(new Date(resp.come_out)).format('HH:mm')
         }
         this.listLoading = false
       }).catch(() => {

@@ -2,8 +2,9 @@
   <div class="app-container">
     <div class="page-subtitle">Welcome,</div>
     <h1 class="page-title">{{ name }}</h1>
-    <div class="page-subtitle">{{ new Date() | dateFilter }} | Have a great day!</div>
-    <el-row :gutter="40">
+    <div class="page-subtitle">{{ new Date() | dateFilter }} | Have a great day!</div><br>
+    <el-tag type="warning">{{ roles[0] }}</el-tag>
+    <el-row :gutter="40" v-if="roles[0] !== 'SUPERADMIN'">
       <el-col :xs="24" :sm="24" :md="24" :lg="24">
         <number-card number="1" label="Sudahkah" :emp_no=emp_no />
       </el-col>

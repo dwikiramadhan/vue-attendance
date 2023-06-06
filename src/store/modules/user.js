@@ -63,9 +63,9 @@ const actions = {
       const token = getToken()
       var decoded = jwt_decode(token);
       getUser(decoded.emp_no).then(response => {
-        const { admin_id, admin_name, admin_email, emp_no } = response.data.data
+        const { admin_id, admin_name, admin_email, emp_no, role } = response.data.data
         const roles = [
-          "SUPERADMIN"
+          role
         ]
         const data = { 
           name: admin_name, 

@@ -119,7 +119,7 @@ export const asyncRoutes = [
         path: 'attendance',
         component: () => import('@/views/attendance/index'),
         name: 'Attendance',
-        meta: { title: 'Attendance', icon: 'dashboard', affix: true, roles: ['SUPERADMIN', 'ADMINISTRATOR', 'OPERATOR'] }
+        meta: { title: 'Attendance', icon: 'dashboard', affix: true, roles: ['SUPERADMIN', 'EMPLOYEE'] }
       }
     ]
   },

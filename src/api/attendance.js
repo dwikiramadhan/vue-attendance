@@ -15,6 +15,14 @@ export function todayAttendance(emp_no) {
   })
 }
 
+export function listAttendance(query) {
+  return request({
+    url: '/attendances',
+    method: 'get',
+    params: query
+  })
+}
+
 export function listAttendanceByEmpNo(emp_no, query) {
   return request({
     url: '/attendance/' + emp_no,

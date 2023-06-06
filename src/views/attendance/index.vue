@@ -80,7 +80,7 @@
 import { mapGetters } from 'vuex'
 import moment from 'moment'
 import Pagination from '@/components/Pagination'
-import { listAttendanceByEmpNo } from '@/api/attendance'
+import { listAttendanceByEmpNo, listAttendance } from '@/api/attendance'
 import VueEasyLightbox from 'vue-easy-lightbox'
 
 export default {
@@ -136,7 +136,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'emp_no'
+      'emp_no', 'roles'
     ])
   },
   created() {
@@ -165,14 +165,23 @@ export default {
 
     getList() {
       this.listLoading = true
-
-      listAttendanceByEmpNo(this.emp_no, this.listQuery).then(response => {
-        this.dataList = response.data.data.data
-        this.total = response.data.data.total_records
-        this.listLoading = false
-      }).catch(() => {
-        this.listLoading = false
-      })
+      if (this.roles[0] == "SUPERADMIN") {
+        listAttendance(this.listQuery).then(response => {
+          this.dataList = response.data.data.data
+          this.total = response.data.data.total_records
+          this.listLoading = false
+        }).catch(() => {
+          this.listLoading = false
+        })
+      }else{
+        listAttendanceByEmpNo(this.emp_no, this.listQuery).then(response => {
+          this.dataList = response.data.data.data
+          this.total = response.data.data.total_records
+          this.listLoading = false
+        }).catch(() => {
+          this.listLoading = false
+        })
+      }
     },
 
     // VIEW DESCRIPTION

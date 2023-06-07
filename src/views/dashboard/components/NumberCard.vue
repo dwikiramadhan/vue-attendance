@@ -48,7 +48,7 @@
           id="photoTaken"
           ref="canvas"
           :width="450"
-          :height="337.5"
+          :height="450"
           style="width: 100%;"
         ></canvas>
       </div>
@@ -169,7 +169,7 @@ export default {
 
       const constraints = (window.constraints = {
         audio: false,
-        video: true,
+        video: { width: 720, height: 720 },
       });
 
       navigator.mediaDevices
@@ -207,7 +207,7 @@ export default {
 
       const canvas = this.$refs.canvas;
       const context = canvas.getContext("2d");
-      context.drawImage(this.$refs.camera, 0, 0, 450, 337.5);
+      context.drawImage(this.$refs.camera, 0, 0, 450, 450);
       const base64File = canvas.toDataURL("image/png");
       const getBase64StringFromDataURL = (dataURL) => dataURL.replace('data:', '').replace(/^.+,/, '');
       const base64 = getBase64StringFromDataURL(base64File);

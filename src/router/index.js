@@ -123,6 +123,19 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/employee',
+    component: Layout,
+    redirect: '/employee',
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/employee/index'),
+        name: 'Employees',
+        meta: { title: 'Employees', icon: 'user', affix: true, roles: ['SUPERADMIN'] }
+      }
+    ]
+  },
   // {
   //   path: '/admin-management',
   //   component: Layout,

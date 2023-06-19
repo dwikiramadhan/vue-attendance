@@ -29,3 +29,18 @@ export function logout() {
   })
 }
 
+export function listEmployee(query) {
+  return request({
+    url: '/employees',
+    method: 'get',
+    params: query
+  })
+}
+
+export function postEmployee(data) {
+  return request({
+    url: '/employee',
+    method: 'post',
+    data
+  })
+}

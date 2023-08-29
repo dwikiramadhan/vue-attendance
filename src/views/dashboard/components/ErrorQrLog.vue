@@ -47,8 +47,6 @@ export default {
   },
   data(){
     return{
-      activeSatpasList:[],
-
         // query var
       listQuery: {
         page: 1,

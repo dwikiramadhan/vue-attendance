@@ -5,7 +5,6 @@
         <img src="@/assets/logo/pins-small.png" class="sidebar-logo-collapse">
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <!-- <img src="@/assets/logo/unotoken-icon-dark.png " class="sidebar-logo"> -->
         <img src="@/assets/logo/pins.png" class="sidebar-logo">
       </router-link>
     </transition>

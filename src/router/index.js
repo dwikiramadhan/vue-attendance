@@ -136,33 +136,6 @@ export const asyncRoutes = [
       }
     ]
   },
-  // {
-  //   path: '/admin-management',
-  //   component: Layout,
-  //   redirect: '/admin-management/list',
-  //   name: 'AdminManagement',
-  //   meta: {
-  //     title: 'Admin Management',
-  //     icon: 'user-gear',
-  //     roles: ['SUPERADMIN', 'ADMINISTRATOR']
-  //   },
-  //   children: [
-  //     {
-  //       path: 'list',
-  //       name: 'AdminList',
-  //       component: () => import('@/views/admin-management/index'),
-  //       meta: { title: 'Admin Mng.', roles: ['SUPERADMIN', 'ADMINISTRATOR'] }
-  //     },
-  //     {
-  //       path: 'create-admin',
-  //       name: 'CreateAdmin',
-  //       component: () => import('@/views/admin-management/create-admin'),
-  //       meta: { title: 'Create Admin', roles: ['SUPERADMIN', 'ADMINISTRATOR'], activeMenu: '/admin-management/list' },
-  //       hidden: true
-  //     }
-  //   ]
-  // },
-
   /** when your routing map is too long, you can split it into small modules **/
 
   // 404 page must be placed at the end !!!

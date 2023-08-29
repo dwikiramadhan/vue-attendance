@@ -25,12 +25,10 @@ import moment from 'moment'
 import NumberCard from './components/NumberCard'
 import ReportCard from './components/ReportCard'
 import PieChart from './components/PieChart'
-import MostActiveSatpas from './components/MostActiveSatpas'
-import SatpasRecord from './components/SatpasRecord'
 
 export default {
   name: 'Dashboard',
-  components: { NumberCard, ReportCard, PieChart, MostActiveSatpas, SatpasRecord },
+  components: { NumberCard, ReportCard, PieChart },
   filters: {
     dateFilter: function(date) {
       if (moment(date).isValid()) {
@@ -58,59 +56,6 @@ export default {
       'emp_no'
     ])
   },
-  data() {
-    return {
-      statNumbers: [
-        // {
-        //   number: 0,
-        //   label: 'QR Generated'
-        // },
-        // {
-        //   number: 0,
-        //   label: 'Enforcer Generated'
-        // }
-        // {
-        //   number:9607,
-        //   label: 'Avg QR generated/day'
-        // },
-        // {
-        //   number:8127,
-        //   label: 'Avg QR scanned/day'
-        // },
-      ],
-      qrLicenseUsage: [
-        {
-          name: 'License used',
-          value: 1948624
-        },
-        {
-          name: 'QR remaining',
-          value: 12051376
-        }
-      ],
-      enforcerLicenseUsage: [
-        {
-          name: 'License used',
-          value: 981803
-        },
-        {
-          name: 'Enforcer remaining',
-          value: 18197
-        }
-      ],
-      qrPercentage: 0,
-      enforcerPercentage: 0
-    }
-  },
-  created() {
-    this.getPercentage()
-  },
-  methods: {
-    getPercentage() {
-      this.qrPercentage = this.qrLicenseUsage[1].value / (this.qrLicenseUsage[0].value + this.qrLicenseUsage[1].value)
-      this.enforcerPercentage = this.enforcerLicenseUsage[1].value / (this.enforcerLicenseUsage[0].value + this.enforcerLicenseUsage[1].value)
-    },
-  }
 }
 </script>
 

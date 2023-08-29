@@ -82,87 +82,11 @@ import { putAdminUser } from '@/api/user-management'
 
 export default {
   data(){
-    const validateAlphabets = (rule, value, callback) => {
-      if (!validAlphabets(value)) {
-        callback(new Error('Only allow alphabets'))
-      } else {
-        callback()
-      }
-    }
     const validateNumber = (rule, value, callback) => {
       if (!validNumeric(value)) {
         callback(new Error('Mobile number must be numeric'))
       } else {
         callback()
-      }
-    }
-    const isSameChangePassword = (rule, value, callback) => {
-      if (value !== this.changePasswordForm.adm_updated_password) {
-        callback(
-          new Error(
-            'Confirm password does not match! Make sure your password correct'
-          )
-        )
-      } else {
-        callback()
-      }
-    }
-    const validatePassword = (rule, value, callback) => {
-      const result = validPassword(value)
-      if (result === 'complex') {
-        callback(
-          new Error(
-            'Password must be at least 8 characters contains uppercase, lowercase, number, special character (@$!%*?&)'
-          )
-        )
-      } else if (result === 'sequence') {
-        callback(
-          new Error(
-            'Password can not contain sequence and predictable word (abc, 123, password, etc)'
-          )
-        )
-      } else if (result === 'repeat') {
-        callback(
-          new Error('Password can not contain repeated alphabet or number')
-        )
-      } else {
-        if (
-          this.editForm.adm_usr_first_name &&
-          this.editForm.adm_usr_last_name &&
-          this.editForm.adm_usr_email &&
-          this.editForm.adm_usr_mobile
-        ) {
-          var regexFirstName = new RegExp(
-            '^((?!' + this.editForm.adm_usr_first_name + ').)*$',
-            'i'
-          )
-          var regexLastName = new RegExp(
-            '^((?!' + this.editForm.adm_usr_last_name + ').)*$',
-            'i'
-          )
-          var regexEmail = new RegExp(
-            '^((?!' + this.editForm.adm_usr_email + ').)*$',
-            'i'
-          )
-          var regexMobile = new RegExp(
-            '^((?!' + this.editForm.adm_usr_mobile + ').)*$',
-            'i'
-          )
-          if (
-            !regexFirstName.test(value) ||
-            !regexLastName.test(value) ||
-            !regexEmail.test(value) ||
-            !regexMobile.test(value)
-          ) {
-            callback(
-              new Error('Password can not contain personal information')
-            )
-          } else {
-            callback()
-          }
-        } else {
-          callback()
-        }
       }
     }
 

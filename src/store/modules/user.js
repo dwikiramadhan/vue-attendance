@@ -35,9 +35,6 @@ const mutations = {
   SET_ROLES: (state, roles) => {
     state.roles = roles
   }
-  // SET_REGNUMBER: (state, regNumber) => {
-  //   state.regNumber = regNumber
-  // }
 }
 
 const actions = {
